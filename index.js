@@ -75,3 +75,21 @@ if (diemTbCaHeo >= 100 && diemTbKoala >= 100) {
     }
 }
 
+// cau 4
+console.log("cau 4")
+var tienTra = 430;
+var tienBoa = 0;
+var tongTien = 0;
+if(tienTra < 50){
+    tongTien = tienTra + tienBoa;
+    console.log("tien tra : " + tienTra + ", tien boa : " + tienBoa + ", tong tien : " + tongTien);
+}else if(tienTra < 300){
+    tienBoa = tienTra * 0.15;
+    tongTien = tienTra + tienBoa;
+    console.log("tien tra : " + tienTra + ", tien boa : " + tienBoa + ", tong tien : " + tongTien);
+}else{
+    tienBoa = tienTra * 0.2;
+    tongTien = tienTra + tienBoa;
+    console.log("tien tra : " + tienTra + ", tien boa : " + tienBoa + ", tong tien : " + tongTien);
+}
+
