@@ -75,7 +75,7 @@ if (diemTbCaHeo >= 100 && diemTbKoala >= 100) {
     }
 }
 
-// cau 4
+// // cau 4
 console.log("cau 4")
 var tienTra = 430;
 var tienBoa = 0;
