@@ -33,7 +33,7 @@ function BaiTap2() {
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">{year}</th>
+                        <th>{year}</th>
                         <td>{money}</td>
                         <td>{rate}</td>
                         <td>{goal}</td>
