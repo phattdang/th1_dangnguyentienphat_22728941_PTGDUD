@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import Item from "../Item";
 
 export default function Products() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch()
+        .then((res) => {
+
+        })
+        .then((data) => {
+            setData(data);
+        });
+    }, []);
+
+    console.log(data);
+
     return (
         <>
             <div className="products px-30 mb-10">
