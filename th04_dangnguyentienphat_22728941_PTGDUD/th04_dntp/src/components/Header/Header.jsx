@@ -1,17 +1,13 @@
 export default function Header() {
     return (
         <>
-            <div className="header">
+            <div className="header px-10">
                 <div className="nav flex justify-between items-center">
                     <div className="logo_search flex gap-5  items-center">
                         <div className="logo">
-                            <img className="size-10" src="/logo.png" alt="" />
+                            <img className="size-10 w-full" src="/chefify.png" alt="" />
                         </div>
-                        <div className="branchName">
-                            <span className='text-xl font-bold text-pink-500'>
-                                Chelify
-                            </span>
-                        </div>
+        
                         <div className="searchBar flex gap-2">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -34,7 +30,7 @@ export default function Header() {
                         </div>
                         <div className="avatar">
                             <a href="">
-                                <img className="size-10 rounded-full" src="/logo.png" alt="" />
+                                <img className="size-10 rounded-full w-full" src="/avatar.png" alt="" />
                             </a>
                         </div>
                     </div>

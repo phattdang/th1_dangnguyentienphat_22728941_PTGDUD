@@ -15,13 +15,9 @@ export default function Footer() {
                     </div>
                     <div className="copyright flex items-center gap-4">
                         <div className="logo">
-                            <img className="size-10" src="/logo.png" alt="" />
+                            <img className="size-10 w-full" src="/white_chefify.png" alt="" />
                         </div>
-                        <div className="branchName">
-                            <span className='text-xl font-bold text-white'>
-                                Chelify
-                            </span>
-                        </div>
+                    
                         <h1>2023 Chelify Company</h1>
                         <h1>Team of Servical Privacy Policy</h1>
                     </div>
