@@ -7,12 +7,14 @@ export default function Header() {
                         <div className="logo">
                             <img className="size-10 w-full" src="/chefify.png" alt="" />
                         </div>
-        
-                        <div className="searchBar flex gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                            </svg>
-                            <input className="border rounded-xl" placeholder="cakescasca" type="text" name="" id="" />
+
+                        <div className="searchBar flex gap-2 items-center">
+                            <div className="bg-gray-100">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                </svg>
+                            </div>
+                            <input className="rounded-md p-2 w-100 border-0 bg-gray-100" placeholder="What would you like to cook?" type="text" name="" id="" />
                         </div>
                     </div>
                     <div className="menu">

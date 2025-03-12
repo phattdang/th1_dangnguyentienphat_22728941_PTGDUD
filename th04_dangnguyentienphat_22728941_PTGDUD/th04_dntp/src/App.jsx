@@ -4,15 +4,18 @@ import Header from './components/Header/Header'
 import Nav from './components/Nav'
 import Products from './components/Products'
 import Review from './components/Review'
+import Slide from './components/Slide'
 
 function App() {
   return (
     <>
-      <Header />
-      <Nav />
-      <Review />
-      <Products />
-      <Footer />
+      <div className="container m-5 p-5 border border-gray-400-2">
+        <Header />
+        <Nav />
+        <Review />
+        <Products />
+        <Footer />
+      </div>
     </>
   )
 }

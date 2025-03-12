@@ -9,8 +9,8 @@ export default function Footer() {
                             to explore and learn how to cook like a pro
                         </span>
                         <div>
-                            <input className="bg-gray-400 rounded-md p-1" placeholder="Enter your email" type="text" name="" id="" />
-                            <button className="ml-4 bg-pink-300 p-1 px-2 rounded-md mt-2">Send</button>
+                            <input className="bg-white rounded-md p-1 text-gray-400" placeholder="Enter your email" type="text" name="" id="" />
+                            <button className="ml-4 bg-pink-500 p-1 px-2 rounded-md mt-2">Send</button>
                         </div>
                     </div>
                     <div className="copyright flex items-center gap-4">
