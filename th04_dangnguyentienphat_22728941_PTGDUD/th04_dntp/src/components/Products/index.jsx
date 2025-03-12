@@ -5,14 +5,14 @@ export default function Products() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch()
-            .then((res) => {
-
-            })
+        fetch("https://67c7c86ec19eb8753e7aba01.mockapi.io/foods")
+            .then((res) => res.json())  // <-- Phải gọi res.json()
             .then((data) => {
                 setData(data);
-            });
+            })
+            .catch((error) => console.error("Fetch error:", error)); // Bắt lỗi nếu có
     }, []);
+
 
     console.log(data);
 
@@ -29,30 +29,11 @@ export default function Products() {
                     </ul>
                 </div>
                 <div className="items grid grid-cols-4 grid-rows-2 gap-3">
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
-                    <div className="col-span-1">
-                        <Item />
-                    </div>
+                    {data.map((item, index) => (
+                        <div className="col-span-1">
+                            <Item data={item} />
+                        </div>
+                    ))}
                 </div>
 
                 <div className="page flex justify-end mr-5">
