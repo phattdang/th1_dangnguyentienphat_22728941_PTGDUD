@@ -1,5 +1,1 @@
 @import "tailwindcss";
-
-.page_item {
-    @apply border border-gray-1 p-2 py-1 rounded-md;
-}
