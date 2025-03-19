@@ -1,56 +1,54 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useReducer } from "react";
 
-export default function Bai1() {
+export default function Bai2() {
 
-    const INCREASE = "Increase";
-    const DECREASE = "Decrease";
-
-    const valueA = useRef(0);
-    const valueB = useRef(0);
-
-    const initialResult = {value:0};
-
-    const reducer = (result, action) => {
-        let a = parseInt(valueA.current.value);
-        let b = parseInt(valueB.current.value);
-        switch(action.type){
-            case INCREASE:{
-                return {...result, value:a+b};
-            }
-            case DECREASE:{
-                return {...result, value:a-b};
-            }
-            default:{
-                return result;
-            }
-        }
-    }
-
-    const [result, dispatch] = useReducer(reducer, initialResult);
+    const [tasks, setTasks] = useState([]);
+    const [task, setTask] = useState("");
 
     return (
         <>
-            <div className="container border p-5">
+            <div className="container border p-5 w-100">
                 <div className="title">
-                    <span>Ex1</span>
+                    <span>Ex2</span>
                 </div>
-                <div className="inputValue text-start">
-                    <input ref={valueA} className="block" type="text" name="" id="" placeholder="Value A"/>
-                    <input ref={valueB} className="block" type="text" name="" id="" placeholder="Value B"/>
+                <div className="inputValue">
+                    <input value={task} onChange={(e) => {
+                        setTask(e.target.value)
+                    }} className="w-full" type="text" name="" id="" placeholder="Tasks" />
                 </div>
-                <div className="operators flex justify-between">
-                    <button onClick={()=>{
-                        dispatch({type:INCREASE})
-                        console.log("a ", valueA);
-                        console.log("b ", valueB);
-                    }}>+</button>
-                    <button onClick={()=>{
-                        dispatch({type:DECREASE})
-                    }}>-</button>
+                <div className="addTask">
+                    <button onClick={() => {
+                        setTasks([...tasks, task])
+                        setTask("");
+                    }} className="w-full">Add task</button>
                 </div>
-                <div className="result text-start">
-                    <input value={"Result : " + result.value} type="text" readOnly name="" id="" placeholder="Result"/>
+                <div className="listTask">
+                    <ul>
+                        {tasks.map((item, index) => {
+                            return (
+                                <>
+                                    <div className="flex items-center justify-between">
+                                        <li key={index}>
+                                            {item}
+                                        </li>
+                                        <button onClick={()=>{
+                                            setTasks((item)=>{
+                                                item.filter((_, i)=>
+                                                    i !== index
+                                                )
+                                            })
+                                        }}>
+                                            Delete
+                                        </button>
+                                        <button>
+                                            Edit
+                                        </button>
+                                    </div>
+                                </>
+                            )
+                        })}
+                    </ul>
                 </div>
             </div>
         </>
