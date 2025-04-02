@@ -4,43 +4,61 @@ import viteLogo from '/vite.svg'
 import './app.css'
 
 export function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <h1 class="text-3xl font-bold underline">
-          Hello world!
-        </h1>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://preactjs.com" target="_blank">
-          <img src={preactLogo} class="logo preact" alt="Preact logo" />
-        </a>
+      <div className="container grid grid-cols-4 grid-rows-3 gap-4 border p-4">
+
+        <div className="side_bar col-span-1 row-span-3 border p-4">
+          <h2>Side Bar</h2>
+        </div>
+
+        <div className="header col-span-3 row-span-1">
+          <div className="dash_board border p-4">
+            <h2>Dashboard</h2>
+          </div>
+          <div className="over_view grid grid-cols-3 gap-4 p-4">
+            <div className="item col-span-1 row-span-1 border p-4">
+              <h3>Item 1</h3>
+            </div>
+            <div className="item col-span-1 row-span-1 border p-4">
+              <h3>Item 2</h3>
+            </div>
+            <div className="item col-span-1 row-span-1 border p-4">
+              <h3>Item 3</h3>
+            </div>
+          </div>
+        </div>
+
+        <div className="detail col-span-3 row-span-2 border p-4">
+          <table className='table-auto border-collapse w-full'>
+            <thead>
+              <tr>
+                <th className="border border-gray-300 px-5 py-2">State</th>
+                <th className="border border-gray-300 px-10 py-2">Custom name</th>
+                <th className="border border-gray-300 px-10 py-2">Company</th>
+                <th className="border border-gray-300 px-10 py-2">Order value</th>
+                <th className="border border-gray-300 px-10 py-2">Order date</th>
+                <th className="border border-gray-300 px-10 py-2">Status</th>
+                <th className="border border-gray-300 px-10 py-2">Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="border border-gray-300 px-5 py-2">✔</td>
+                <td className="border border-gray-300 px-10 py-2">John Doe</td>
+                <td className="border border-gray-300 px-10 py-2">Company X</td>
+                <td className="border border-gray-300 px-10 py-2">$100</td>
+                <td className="border border-gray-300 px-10 py-2">2025-04-02</td>
+                <td className="border border-gray-300 px-10 py-2">Active</td>
+                <td className="border border-gray-300 px-10 py-2">Edit</td>
+              </tr>
+              {/* Thêm các hàng khác nếu cần */}
+            </tbody>
+          </table>
+        </div>
+
       </div>
-      <h1>Vite + Preact</h1>
-      <div class="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/app.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>
-        Check out{' '}
-        <a
-          href="https://preactjs.com/guide/v10/getting-started#create-a-vite-powered-preact-app"
-          target="_blank"
-        >
-          create-preact
-        </a>
-        , the official Preact + Vite starter
-      </p>
-      <p class="read-the-docs">
-        Click on the Vite and Preact logos to learn more
-      </p>
     </>
   )
 }
