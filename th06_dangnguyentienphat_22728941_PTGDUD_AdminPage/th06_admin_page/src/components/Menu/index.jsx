@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router";
+import { NavLink } from "react-router";
 import btnDashBoard from "../../assets/images/Squares four 1.png"
 import btnProject from "../../assets/images/Folder.png"
 import btnTeam from "../../assets/images/Groups.png"
@@ -12,7 +12,7 @@ export default function Menu() {
             <div>
                 <div className="menu">
                     <ul className="flex flex-col gap-5">
-                        <li className="flex gap-2 block">
+                        <li className="flex gap-2">
                             <img src={btnDashBoard} alt="" />
                             <NavLink
                                 to="/"
