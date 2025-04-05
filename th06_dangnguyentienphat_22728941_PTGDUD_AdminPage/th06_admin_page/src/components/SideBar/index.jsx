@@ -1,3 +1,5 @@
+import Menu from "../Menu";
+
 export default function SideBar() {
     return (
         <>
@@ -6,46 +8,7 @@ export default function SideBar() {
                     <img src="" alt="" />
                     <p>logo</p>
                 </div>
-                <div className="menu">
-                    <ul>
-                        <li>
-                            <img src="" alt="" />
-                            <a href="">
-                                <span>dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <img src="" alt="" />
-                            <a href="">
-                                <span>projects</span>
-                            </a>
-                        </li>
-                        <li>
-                            <img src="" alt="" />
-                            <a href="">
-                                <span>teams</span>
-                            </a>
-                        </li>
-                        <li>
-                            <img src="" alt="" />
-                            <a href="">
-                                <span>analytics</span>
-                            </a>
-                        </li>
-                        <li>
-                            <img src="" alt="" />
-                            <a href="">
-                                <span>messages</span>
-                            </a>
-                        </li>
-                        <li>
-                            <img src="" alt="" />
-                            <a href="">
-                                <span>intergrations</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <Menu />
                 <div className="verson">
                     <img src="" alt="" />
                     <p>V2.0 is available</p>
