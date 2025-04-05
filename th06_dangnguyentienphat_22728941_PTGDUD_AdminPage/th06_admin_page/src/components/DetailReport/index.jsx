@@ -1,33 +1,58 @@
+import { useEffect, useState } from "preact/hooks"
+import fetchPersonAPI from "../../api/person";
+import DataTable from 'react-data-table-component';
+import DataTableExtensions from 'react-data-table-component-extensions';
+import 'react-data-table-component-extensions/dist/index.css';
+import btnCreate from "../../assets/images/create.png"
+
 export default function DetailReport() {
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetchPersonAPI()
+            .then(data => setData(data));
+    }, []);
+
+    const columns = [
+        { name: 'Name', selector: row => row.name, sortable: true },
+        { name: 'Company', selector: row => row.company },
+        { name: 'Order Value', selector: row => row.orderValue },
+        { name: 'Order Date', selector: row => row.orderDate },
+        {
+            name: 'Status', selector: row => {
+                if(row.status)
+                    return <p className="p-2 py-1 bg-green-100 text-green-700 rounded-2xl">Completed</p>;
+                else return <p className="p-2 py-1 bg-blue-100 text-blue-700 rounded-2xl">New</p>;;
+            }
+        },
+        {
+            name: '', selector: () => (
+                <><button className="hover:bg-gray-300 p-3 rounded-2xl"><img src={btnCreate} alt="" /></button></>
+            )
+        }
+    ];
+
+    // Định nghĩa tableData ở đây
+    const tableData = {
+        columns,
+        data
+    };
+
     return (
-        <>
-            <div className="detail col-span-3 row-span-2 p-4">
-                <table className='table-auto border-collapse w-full'>
-                    <thead>
-                        <tr>
-                            <th className="border border-gray-300 px-5 py-2">State</th>
-                            <th className="border border-gray-300 px-10 py-2">Custom name</th>
-                            <th className="border border-gray-300 px-10 py-2">Company</th>
-                            <th className="border border-gray-300 px-10 py-2">Order value</th>
-                            <th className="border border-gray-300 px-10 py-2">Order date</th>
-                            <th className="border border-gray-300 px-10 py-2">Status</th>
-                            <th className="border border-gray-300 px-10 py-2">Edit</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td className="border border-gray-300 px-5 py-2">✔</td>
-                            <td className="border border-gray-300 px-10 py-2">John Doe</td>
-                            <td className="border border-gray-300 px-10 py-2">Company X</td>
-                            <td className="border border-gray-300 px-10 py-2">$100</td>
-                            <td className="border border-gray-300 px-10 py-2">2025-04-02</td>
-                            <td className="border border-gray-300 px-10 py-2">Active</td>
-                            <td className="border border-gray-300 px-10 py-2">Edit</td>
-                        </tr>
-                        {/* Thêm các hàng khác nếu cần */}
-                    </tbody>
-                </table>
-            </div>
-        </>
+        <div className="detail col-span-3 row-span-2 p-4 pt-0">
+            <DataTableExtensions {...tableData}>
+                <DataTable
+                    title="Danh sách người dùng"
+                    columns={columns}
+                    data={data}
+                    pagination
+                    paginationPerPage={6}
+                    highlightOnHover
+                    selectableRows
+                    striped
+                    persistTableHead
+                />
+            </DataTableExtensions>
+        </div>
     )
 }

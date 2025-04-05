@@ -10,7 +10,7 @@ export function App() {
 
   return (
     <>
-      <div className="container grid grid-cols-4 grid-rows-3 gap-4 border p-4">
+      <div className="container grid grid-cols-4 grid-rows-3 border p-4">
 
         <SideBar />
 

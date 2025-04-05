@@ -15,10 +15,10 @@ export default function Overview() {
     return (
         <>
             <div className="header col-span-3 row-span-1">
-                <div className="dash_board p-4">
+                <div className="dash_board p-4 pb-0">
                     <h2>Dashboard</h2>
                 </div>
-                <div className="over_view grid grid-cols-3 gap-4 p-4">
+                <div className="over_view grid grid-cols-3 gap-4 p-4 pb-0">
                     {data.map((item, index)=>{
                         return <OverviewItem key={index} data={item}/>
                     })}

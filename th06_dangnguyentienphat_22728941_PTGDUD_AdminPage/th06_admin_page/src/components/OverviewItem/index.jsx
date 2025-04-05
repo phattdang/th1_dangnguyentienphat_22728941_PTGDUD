@@ -13,7 +13,7 @@ export default function OverviewItem({data}) {
                     <span className="font-bold text-green-600">{data.rate}%</span>
                     <span className="text-gray-500"> period of change</span>
                 </p>
-                <button className="hover:bg-pink-100 absolute top-5 right-5">
+                <button className="hover:bg-gray-200 rounded-xl absolute top-5 right-5">
                     <img src={data.imgBtn} alt="img" />
                 </button>
             </div>
