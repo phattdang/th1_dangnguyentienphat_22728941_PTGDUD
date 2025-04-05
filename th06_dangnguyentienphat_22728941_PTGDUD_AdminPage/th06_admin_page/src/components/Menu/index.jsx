@@ -1,46 +1,87 @@
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
+import btnDashBoard from "../../assets/images/Squares four 1.png"
+import btnProject from "../../assets/images/Folder.png"
+import btnTeam from "../../assets/images/Groups.png"
+import btnAnalytic from "../../assets/images/Pie chart.png"
+import btnMessage from "../../assets/images/Chat.png"
+import btnIntegration from "../../assets/images/Code.png"
 
 export default function Menu() {
     return (
         <>
             <div>
                 <div className="menu">
-                    <ul>
-                        <li>
-                            <img src="" alt="" />
-                            <Link to="/">
-                                <span>dashboard</span>
-                            </Link>
+                    <ul className="flex flex-col gap-5">
+                        <li className="flex gap-2 block">
+                            <img src={btnDashBoard} alt="" />
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    isActive ? "text-white bg-pink-500 font-bold pl-3 w-full rounded" : ""
+                                }
+                            >
+                                Dashboard
+                            </NavLink>
                         </li>
-                        <li>
-                            <img src="" alt="" />
-                            <Link to="/projects">
-                                <span>projects</span>
-                            </Link>
+                        <li className="flex gap-2">
+                            <img src={btnProject} alt="" />
+
+                            <NavLink
+                                to="/projects"
+                                className={({ isActive }) =>
+                                    isActive ? "text-white bg-pink-500 font-bold pl-3 w-full rounded" : ""
+                                }
+                            >
+                                Projects
+                            </NavLink>
                         </li>
-                        <li>
-                            <img src="" alt="" />
-                            <Link to="/teams">
-                                <span>teams</span>
-                            </Link>
+                        <li className="flex gap-2">
+                            <img src={btnTeam} alt="" />
+
+                            <NavLink
+                                to="/teams"
+                                className={({ isActive }) =>
+                                    isActive ? "text-white bg-pink-500 font-bold pl-3 w-full rounded" : ""
+                                }
+                            >
+                                Teams
+                            </NavLink>
                         </li>
-                        <li>
-                            <img src="" alt="" />
-                            <Link to="/analytics">
-                                <span>analytics</span>
-                            </Link>
+                        <li className="flex gap-2">
+                            <img src={btnAnalytic} alt="" />
+
+                            <NavLink
+                                to="/analytics"
+                                className={({ isActive }) =>
+                                    isActive ? "text-white bg-pink-500 font-bold pl-3 w-full rounded" : ""
+                                }
+                            >
+                                Analytics
+                            </NavLink>
                         </li>
-                        <li>
-                            <img src="" alt="" />
-                            <Link to="/messages">
-                                <span>messages</span>
-                            </Link>
+                        <li className="flex gap-2">
+                            <img src={btnMessage} alt="" />
+
+                            <NavLink
+                                to="/messages"
+                                className={({ isActive }) =>
+                                    isActive ? "text-white bg-pink-500 font-bold pl-3 w-full rounded" : ""
+                                }
+                            >
+                                Messages
+                            </NavLink>
                         </li>
-                        <li>
-                            <img src="" alt="" />
-                            <Link to="/integrations">
-                                <span>intergrations</span>
-                            </Link>
+                        <li className="flex gap-2">
+                            <img src={btnIntegration} alt="" />
+
+                            <NavLink
+                                to="/integrations"
+                                className={({ isActive }) =>
+                                    isActive ? "text-white bg-pink-500 font-bold pl-3 w-full rounded" : ""
+                                }
+                            >
+                                Intergrations
+                            </NavLink>
                         </li>
                     </ul>
                 </div>
