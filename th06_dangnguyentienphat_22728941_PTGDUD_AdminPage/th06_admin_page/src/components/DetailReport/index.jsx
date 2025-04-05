@@ -42,7 +42,7 @@ export default function DetailReport() {
         <div className="detail col-span-3 row-span-2 p-4 pt-0">
             <DataTableExtensions {...tableData}>
                 <DataTable
-                    title="Danh sách người dùng"
+                    title="Detail Report"
                     columns={columns}
                     data={data}
                     pagination
