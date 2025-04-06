@@ -5,14 +5,20 @@ import DataTableExtensions from 'react-data-table-component-extensions';
 import 'react-data-table-component-extensions/dist/index.css';
 import btnCreate from "../../assets/images/create.png"
 import Modal from 'react-modal';
+import EditModal from "../Modal";
 
 export default function DetailReport() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const openModal = () => setIsOpen(true);
-    const closeModal = () => setIsOpen(false);
+    const openModal = (row) => {
+        setSelectedRow(row);
+        setIsOpen(true);
+        console.log(row)
+    };
 
     const [data, setData] = useState([]);
+
+    const [selectedRow, setSelectedRow] = useState(null);
 
     useEffect(() => {
         fetchPersonAPI()
@@ -32,17 +38,28 @@ export default function DetailReport() {
             }
         },
         {
-            name: '', selector: () => (
-                <><button onClick={openModal} className="hover:bg-gray-300 p-3 rounded-2xl"><img src={btnCreate} alt="" /></button></>
+            name: '',
+            cell: (row) => (
+                <button onClick={() => openModal(row)} className="hover:bg-gray-300 p-3 rounded-2xl">
+                    <img src={btnCreate} alt="" />
+                </button>
             )
         }
     ];
 
-    // Định nghĩa tableData ở đây
     const tableData = {
         columns,
         data
     };
+
+    const fakeData = {
+        name: "Ruth Toy",
+        company: "Schaden Group",
+        orderValue: 75,
+        orderDate: "1951-09-03T08:21:23.146Z",
+        status: "New"
+    };
+
 
     return (
         <div className="detail col-span-3 row-span-2 p-4 pt-0">
@@ -59,10 +76,12 @@ export default function DetailReport() {
                     persistTableHead
                 />
             </DataTableExtensions>
-            <Modal isOpen={isOpen} onRequestClose={closeModal} contentLabel="Example Modal">
-                <h2>Hello, this is a modal!</h2>
-                <button onClick={closeModal}>Close</button>
-            </Modal>
+            <EditModal
+                isOpen={isOpen}
+                onRequestClose={() => setIsOpen(false)}
+                selectedRow={selectedRow}
+                setData={setData}
+            />
         </div>
 
     )
