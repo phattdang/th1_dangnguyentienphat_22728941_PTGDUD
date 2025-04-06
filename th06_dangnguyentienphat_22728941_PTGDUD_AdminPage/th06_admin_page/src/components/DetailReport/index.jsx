@@ -4,6 +4,9 @@ import DataTable from 'react-data-table-component';
 import DataTableExtensions from 'react-data-table-component-extensions';
 import 'react-data-table-component-extensions/dist/index.css';
 import btnCreate from "../../assets/images/create.png"
+import fileText from "../../assets/images/File text 1.png"
+import importBtn from "../../assets/images/Download.png"
+import exportBtn from "../../assets/images/Move up.png"
 import Modal from 'react-modal';
 import EditModal from "../Modal";
 
@@ -29,7 +32,17 @@ export default function DetailReport() {
     }, []);
 
     const columns = [
-        { name: 'Name', selector: row => row.name, sortable: true },
+        {
+            name: 'Name',
+            selector: row => row.name,
+            sortable: true,
+            cell: row => (
+                <div className="flex items-center space-x-2">
+                    <img src={row.img} alt={row.name} className="w-8 h-8 rounded-full object-cover" />
+                    <span>{row.name}</span>
+                </div>
+            )
+        },
         { name: 'Company', selector: row => row.company },
         { name: 'Order Value', selector: row => row.orderValue },
         { name: 'Order Date', selector: row => row.orderDate },
@@ -69,10 +82,15 @@ export default function DetailReport() {
     }
 
     return (
-        <div className="detail col-span-3 row-span-2 p-4 pt-0">
-            <DataTableExtensions {...tableData}>
-                <DataTable
-                    title="Detail Report"
+        <div className="detail col-span-3 row-span-2 p-4 pt-0 mt-10 ">
+            <DataTable
+                    className="border border-gray-300"
+                    title={
+                        <div className="flex items-center space-x-2">
+                            <img src={fileText} alt="Logo" className="w-6 h-6" />
+                            <span className="text-xl font-semibold">Detail Report</span>
+                        </div>
+                    }
                     columns={columns}
                     data={data}
                     pagination
@@ -80,18 +98,40 @@ export default function DetailReport() {
                     highlightOnHover
                     selectableRows
                     striped
-                    p ersistTableHead
+                    persistTableHead
                     actions={
-                        <button onClick={handleAddCustomer} className="bg-blue-400 text-white p-2 
+                        <div className="flex space-x-5">
+                            <button onClick={handleAddCustomer} className="bg-blue-400 text-white p-2 px-4 
                         text-sm rounded-md hover:bg-blue-600 tran
                         hover:scale-115
                         transition ease-out duration-300
                         ">
-                            Add
-                        </button>
+                                Add
+                            </button>
+                            <button className="border border-pink-500 text-pink-500 p-2 px-3 
+                        text-sm rounded-md  
+                        hover:scale-115
+                        transition ease-out duration-300
+                        flex gap-3
+                        font-semibold
+                        ">
+                            <img src={importBtn} alt="" />
+                                Import
+                            </button>
+                            <button className="border border-pink-500 text-pink-500 p-2 px-3 
+                        text-sm rounded-md 
+                        hover:scale-115
+                        transition ease-out duration-300
+                        flex gap-3
+                        font-semibold
+                        ">
+                            <img src={exportBtn} alt="" />
+                                Export
+                            </button>
+                        </div>
+
                     }
                 />
-            </DataTableExtensions>
             <EditModal
                 isOpen={isOpen}
                 onRequestClose={() => setIsOpen(false)}

@@ -12,7 +12,7 @@ export function App() {
 
   return (
     <>
-      <div className="container grid grid-cols-4 grid-rows-3 border p-4">
+      <div className="container grid grid-cols-4 grid-rows-3 border border-gray-300">
         <SideBar />
         <Overview />
         <Routes>
@@ -23,7 +23,6 @@ export function App() {
           <Route path="/messages" element={<Message />} />
           <Route path="/integrations" element={<Integration />} />
         </Routes>
-
       </div>
     </>
   )
