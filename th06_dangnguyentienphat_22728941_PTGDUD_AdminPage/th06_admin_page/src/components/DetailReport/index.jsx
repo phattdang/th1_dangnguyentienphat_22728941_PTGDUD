@@ -10,9 +10,12 @@ import EditModal from "../Modal";
 export default function DetailReport() {
     const [isOpen, setIsOpen] = useState(false);
 
+    const [modalType, setModalType] = useState("");
+
     const openModal = (row) => {
         setSelectedRow(row);
         setIsOpen(true);
+        setModalType("update")
         console.log(row)
     };
 
@@ -60,6 +63,10 @@ export default function DetailReport() {
         status: "New"
     };
 
+    const handleAddCustomer = () => {
+        setModalType("add");
+        setIsOpen(true);
+    }
 
     return (
         <div className="detail col-span-3 row-span-2 p-4 pt-0">
@@ -73,14 +80,24 @@ export default function DetailReport() {
                     highlightOnHover
                     selectableRows
                     striped
-                    persistTableHead
+                    p ersistTableHead
+                    actions={
+                        <button onClick={handleAddCustomer} className="bg-blue-400 text-white p-2 
+                        text-sm rounded-md hover:bg-blue-600 tran
+                        hover:scale-115
+                        transition ease-out duration-300
+                        ">
+                            Add
+                        </button>
+                    }
                 />
             </DataTableExtensions>
             <EditModal
                 isOpen={isOpen}
                 onRequestClose={() => setIsOpen(false)}
-                selectedRow={selectedRow}
+                selectedRow={modalType === "update" ? selectedRow : null}
                 setData={setData}
+                modalType={modalType}
             />
         </div>
 
