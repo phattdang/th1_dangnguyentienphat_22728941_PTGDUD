@@ -24,7 +24,33 @@ function App() {
       imgBtn: "https://i.imgur.com/0AXDJOn.png"
     }
   ];
-  const [count, setCount] = useState(0)
+  
+  const tableData = [
+    {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      project: "Project Alpha",
+      status: "Completed",
+      amount: "$1,200"
+    },
+    {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      project: "Project Beta",
+      status: "In Progress",
+      amount: "$980"
+    },
+    {
+      id: 3,
+      name: "Alice Johnson",
+      email: "alice@example.com",
+      project: "Project Gamma",
+      status: "Pending",
+      amount: "$750"
+    }
+  ];
 
   return (
     <div className="flex h-screen">
@@ -79,8 +105,41 @@ function App() {
         {/* Detailed Report Section */}
         <section className="bg-white p-4 rounded shadow">
           <h2 className="text-lg font-semibold mb-4">Detailed Report</h2>
-          <div className="h-40 bg-gray-100 flex items-center justify-center text-gray-400">
-            Table Placeholder
+          <div className="overflow-auto">
+            <table className="w-full table-auto text-sm">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="text-left px-4 py-2">#</th>
+                  <th className="text-left px-4 py-2">Name</th>
+                  <th className="text-left px-4 py-2">Email</th>
+                  <th className="text-left px-4 py-2">Project</th>
+                  <th className="text-left px-4 py-2">Status</th>
+                  <th className="text-left px-4 py-2">Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                {tableData.map((row) => (
+                  <tr key={row.id} className="border-t">
+                    <td className="px-4 py-2">{row.id}</td>
+                    <td className="px-4 py-2">{row.name}</td>
+                    <td className="px-4 py-2">{row.email}</td>
+                    <td className="px-4 py-2">{row.project}</td>
+                    <td className="px-4 py-2">
+                      <span className={`px-2 py-1 rounded text-xs font-semibold ${
+                        row.status === "Completed"
+                          ? "bg-green-100 text-green-700"
+                          : row.status === "In Progress"
+                          ? "bg-yellow-100 text-yellow-700"
+                          : "bg-red-100 text-red-700"
+                      }`}>
+                        {row.status}
+                      </span>
+                    </td>
+                    <td className="px-4 py-2">{row.amount}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       </main>
