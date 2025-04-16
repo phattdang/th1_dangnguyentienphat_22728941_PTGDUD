@@ -1,72 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom';
 
-function App() {
-  const overviewData = [
-    {
-      name: "Turnover",
-      value: 92.405,
-      rate: 5.39,
-      imgBtn: "https://i.imgur.com/yzmYQtJ.png"
-    },
-    {
-      name: "Profit",
-      value: 32.218,
-      rate: 5.39,
-      imgBtn: "https://i.imgur.com/phVH2YN.png"
-    },
-    {
-      name: "New customer",
-      value: 298,
-      rate: 5.84,
-      imgBtn: "https://i.imgur.com/0AXDJOn.png"
-    }
-  ];
-  
-  const tableData = [
-    {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      project: "Project Alpha",
-      status: "Completed",
-      amount: "$1,200"
-    },
-    {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      project: "Project Beta",
-      status: "In Progress",
-      amount: "$980"
-    },
-    {
-      id: 3,
-      name: "Alice Johnson",
-      email: "alice@example.com",
-      project: "Project Gamma",
-      status: "Pending",
-      amount: "$750"
-    }
-  ];
+const overviewData = [
+  {
+    name: "Turnover",
+    value: 92.405,
+    rate: 5.39,
+    imgBtn: "https://i.imgur.com/yzmYQtJ.png"
+  },
+  {
+    name: "Profit",
+    value: 32.218,
+    rate: 5.39,
+    imgBtn: "https://i.imgur.com/phVH2YN.png"
+  },
+  {
+    name: "New customer",
+    value: 298,
+    rate: 5.84,
+    imgBtn: "https://i.imgur.com/0AXDJOn.png"
+  }
+];
 
+const tableData = [
+  {
+    id: 1,
+    name: "John Doe",
+    email: "john@example.com",
+    project: "Project Alpha",
+    status: "Completed",
+    amount: "$1,200"
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    email: "jane@example.com",
+    project: "Project Beta",
+    status: "In Progress",
+    amount: "$980"
+  },
+  {
+    id: 3,
+    name: "Alice Johnson",
+    email: "alice@example.com",
+    project: "Project Gamma",
+    status: "Pending",
+    amount: "$750"
+  }
+];
+
+// Bỏ phần useState, reactLogo,... nếu không dùng
+
+function DashboardPage() {
+  // (Nội dung phần Dashboard như Phát viết ở trên)
   return (
-    <div className="flex h-screen">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white shadow-lg p-4">
-        <div className="text-2xl font-bold mb-6">Logo</div>
-        <nav className="space-y-4">
-          <button className="text-left w-full font-semibold text-pink-600">Dashboard</button>
-          <button className="text-left w-full text-gray-700">Projects</button>
-          <button className="text-left w-full text-gray-700">Teams</button>
-          <button className="text-left w-full text-gray-700">Analytics</button>
-          <button className="text-left w-full text-gray-700">Messages</button>
-          <button className="text-left w-full text-gray-700">Integrations</button>
-        </nav>
-      </aside>
-
+    <div>
       {/* Main content */}
       <main className="flex-1 bg-gray-50 p-6 overflow-auto">
         {/* Header */}
@@ -147,4 +135,45 @@ function App() {
   );
 }
 
-export default App
+function ProjectsPage() {
+  return <div className="text-xl font-semibold p-4">📂 This is Projects Page</div>;
+}
+
+function TeamsPage() {
+  return <div className="text-xl font-semibold p-4">👥 This is Teams Page</div>;
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="flex h-screen">
+        {/* Sidebar */}
+        <aside className="w-64 bg-white shadow-lg p-4">
+          <div className="text-2xl font-bold mb-6">Logo</div>
+          <nav className="space-y-4">
+            <NavLink to="/" className={({ isActive }) => isActive ? "text-pink-600 font-semibold" : "text-gray-700"}>
+              Dashboard
+            </NavLink>
+            <NavLink to="/projects" className={({ isActive }) => isActive ? "text-pink-600 font-semibold" : "text-gray-700"}>
+              Projects
+            </NavLink>
+            <NavLink to="/teams" className={({ isActive }) => isActive ? "text-pink-600 font-semibold" : "text-gray-700"}>
+              Teams
+            </NavLink>
+          </nav>
+        </aside>
+
+        {/* Main content */}
+        <main className="flex-1 bg-gray-50 p-6 overflow-auto">
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/teams" element={<TeamsPage />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
+}
+
+export default App;
