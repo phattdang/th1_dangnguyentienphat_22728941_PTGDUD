@@ -1,9 +1,10 @@
 import "./App.css";
+import FUseReducer from "./step1_useReducer";
 
 function App() {
   return (
     <>
-      <h1 class="text-3xl font-bold underline">Hello world!</h1>
+      <FUseReducer />
     </>
   );
 }
