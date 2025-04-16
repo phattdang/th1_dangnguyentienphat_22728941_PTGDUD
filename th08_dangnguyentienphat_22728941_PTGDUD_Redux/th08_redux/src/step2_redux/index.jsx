@@ -47,16 +47,28 @@ function CalculatorApp() {
           type="text"
           placeholder="B value"
         />
-        <button onClick={() => handleCalc("+")} className="border border-gray-500">
+        <button
+          onClick={() => handleCalc("+")}
+          className="border border-gray-500"
+        >
           +
         </button>
-        <button onClick={() => handleCalc("-")} className="border border-gray-500">
+        <button
+          onClick={() => handleCalc("-")}
+          className="border border-gray-500"
+        >
           -
         </button>
-        <button onClick={() => handleCalc("x")} className="border border-gray-500">
+        <button
+          onClick={() => handleCalc("x")}
+          className="border border-gray-500"
+        >
           x
         </button>
-        <button onClick={() => handleCalc("/")} className="border border-gray-500">
+        <button
+          onClick={() => handleCalc("/")}
+          className="border border-gray-500"
+        >
           /
         </button>
         <input
