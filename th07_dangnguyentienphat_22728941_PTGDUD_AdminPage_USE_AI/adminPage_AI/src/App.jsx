@@ -49,15 +49,10 @@ const tableData = [
   }
 ];
 
-// Bỏ phần useState, reactLogo,... nếu không dùng
-
 function DashboardPage() {
-  // (Nội dung phần Dashboard như Phát viết ở trên)
   return (
     <div>
-      {/* Main content */}
       <main className="flex-1 bg-gray-50 p-6 overflow-auto">
-        {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-pink-600">Dashboard</h1>
           <div className="flex items-center space-x-4">
@@ -70,7 +65,6 @@ function DashboardPage() {
           </div>
         </div>
 
-        {/* Overview Section */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           {overviewData.map((item, index) => (
             <div key={index} className="bg-white p-4 rounded shadow">
@@ -90,7 +84,6 @@ function DashboardPage() {
           ))}
         </section>
 
-        {/* Detailed Report Section */}
         <section className="bg-white p-4 rounded shadow">
           <h2 className="text-lg font-semibold mb-4">Detailed Report</h2>
           <div className="overflow-auto">
@@ -147,23 +140,78 @@ function App() {
   return (
     <BrowserRouter>
       <div className="flex h-screen">
-        {/* Sidebar */}
         <aside className="w-64 bg-white shadow-lg p-4">
-          <div className="text-2xl font-bold mb-6">Logo</div>
-          <nav className="space-y-4">
-            <NavLink to="/" className={({ isActive }) => isActive ? "text-pink-600 font-semibold" : "text-gray-700"}>
-              Dashboard
+          <div className="text-2xl font-bold mb-6 text-pink-600">Logo</div>
+          <nav className="space-y-2">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center space-x-2 bg-pink-100 text-pink-600 font-semibold rounded px-3 py-2"
+                  : "flex items-center space-x-2 text-gray-700 rounded px-3 py-2 hover:bg-gray-100"
+              }
+            >
+              <span>📊</span>
+              <span>Dashboard</span>
             </NavLink>
-            <NavLink to="/projects" className={({ isActive }) => isActive ? "text-pink-600 font-semibold" : "text-gray-700"}>
-              Projects
+            <NavLink
+              to="/projects"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center space-x-2 bg-pink-100 text-pink-600 font-semibold rounded px-3 py-2"
+                  : "flex items-center space-x-2 text-gray-700 rounded px-3 py-2 hover:bg-gray-100"
+              }
+            >
+              <span>📂</span>
+              <span>Projects</span>
             </NavLink>
-            <NavLink to="/teams" className={({ isActive }) => isActive ? "text-pink-600 font-semibold" : "text-gray-700"}>
-              Teams
+            <NavLink
+              to="/teams"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center space-x-2 bg-pink-100 text-pink-600 font-semibold rounded px-3 py-2"
+                  : "flex items-center space-x-2 text-gray-700 rounded px-3 py-2 hover:bg-gray-100"
+              }
+            >
+              <span>👥</span>
+              <span>Teams</span>
+            </NavLink>
+            <NavLink
+              to="/analytics"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center space-x-2 bg-pink-100 text-pink-600 font-semibold rounded px-3 py-2"
+                  : "flex items-center space-x-2 text-gray-700 rounded px-3 py-2 hover:bg-gray-100"
+              }
+            >
+              <span>📈</span>
+              <span>Analytics</span>
+            </NavLink>
+            <NavLink
+              to="/messages"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center space-x-2 bg-pink-100 text-pink-600 font-semibold rounded px-3 py-2"
+                  : "flex items-center space-x-2 text-gray-700 rounded px-3 py-2 hover:bg-gray-100"
+              }
+            >
+              <span>💬</span>
+              <span>Messages</span>
+            </NavLink>
+            <NavLink
+              to="/integrations"
+              className={({ isActive }) =>
+                isActive
+                  ? "flex items-center space-x-2 bg-pink-100 text-pink-600 font-semibold rounded px-3 py-2"
+                  : "flex items-center space-x-2 text-gray-700 rounded px-3 py-2 hover:bg-gray-100"
+              }
+            >
+              <span>🔗</span>
+              <span>Integrations</span>
             </NavLink>
           </nav>
         </aside>
 
-        {/* Main content */}
         <main className="flex-1 bg-gray-50 p-6 overflow-auto">
           <Routes>
             <Route path="/" element={<DashboardPage />} />
